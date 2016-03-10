@@ -1,2 +1,2 @@
-calc : main.c
-	cc -ansi -g -Wall -Wpedantic -o calc main.c
+calc : main.c calc.c
+	cc -ansi -g -Wall -Wpedantic -I. -o calc main.c calc.c
