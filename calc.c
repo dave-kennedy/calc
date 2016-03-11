@@ -3,6 +3,27 @@
 
 #include "calc.h"
 
+int calc(char op, float num1, float num2, float *result)
+{
+	switch (op) {
+		case '+':
+			*result = num1 + num2;
+			return 1;
+		case '-':
+			*result = num1 - num2;
+			return 1;
+		case '*':
+			*result = num1 * num2;
+			return 1;
+		case '/':
+			*result = num1 / num2;
+			return 1;
+		default:
+			*result = 0.0;
+			return 0;
+	}
+}
+
 int isop(char c)
 {
 	return c == '+' || c == '-' || c == '*' || c == '/';

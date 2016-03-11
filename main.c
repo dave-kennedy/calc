@@ -13,28 +13,10 @@ int main()
 		num1 = 0.0;
 		num2 = 0.0;
 		parse(input, &op, &num1, &num2, &result);
-		switch (op) {
-			case '+':
-				result = num1 + num2;
-				printf("\t%f\n", result);
-				break;
-			case '-':
-				result = num1 - num2;
-				printf("\t%f\n", result);
-				break;
-			case '*':
-				result = num1 * num2;
-				printf("\t%f\n", result);
-				break;
-			case '/':
-				result = num1 / num2;
-				printf("\t%f\n", result);
-				break;
-			default:
-				result = 0.0;
-				printf("\terror\n");
-				break;
-		}
+		if (!calc(op, num1, num2, &result))
+			printf("\terror: %c is not an operator\n", op);
+		else
+			printf("\t%f\n", result);
 	}
 	return 0;
 }

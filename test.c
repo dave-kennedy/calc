@@ -9,6 +9,21 @@
 
 int tests_run = 0;
 
+static char *test_calc()
+{
+	float result = 0.0;
+
+	calc('+', 1.0, 2.0, &result);
+	assert("error: result should be 3.0", result == 3.0);
+	calc('-', 1.0, 2.0, &result);
+	assert("error: result should be -1.0", result == -1.0);
+	calc('*', 2.0, 3.0, &result);
+	assert("error: result should be 6.0", result == 6.0);
+	calc('/', 6.0, 3.0, &result);
+	assert("error: result should be 2.0", result == 2.0);
+	return 0;
+}
+
 static char *test_isop()
 {
 	assert("error: + is an operator", isop('+'));
@@ -70,6 +85,7 @@ static char *test_parse()
 
 static char *test_all()
 {
+	run_test(test_calc);
 	run_test(test_isop);
 	run_test(test_parse);
 	return 0;
